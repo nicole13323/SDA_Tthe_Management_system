@@ -1,0 +1,127 @@
+:root {
+  --ink: #10241c;
+  --forest: #1b5e3f;
+  --forest-dark: #144a32;
+  --sky: #1c75bc;
+  --sun: #f2c230;
+  --paper: #f3f6f4;
+  --surface: #ffffff;
+  --line: #d9e2dd;
+  --muted: #55655d;
+  --danger: #b3261e;
+  --ok: #17663f;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.5;
+}
+h1, h2 { font-family: 'Sora', system-ui, sans-serif; line-height: 1.2; margin: 0 0 0.75rem; }
+h1 { font-size: 1.6rem; }
+h2 { font-size: 1.15rem; }
+.muted { color: var(--muted); }
+.small { font-size: 0.875rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
+
+/* The Rwandan flag bands: the one decorative motif. */
+.flagband { height: 8px; background: linear-gradient(to bottom, var(--sky) 0 50%, var(--sun) 50% 75%, var(--forest) 75% 100%); }
+
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.6rem 1rem; background: var(--surface); border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 0.5rem; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--forest); }
+.logo { width: 38px; height: 38px; object-fit: contain; }
+.topbar-right { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+.who { font-weight: 600; max-width: 14rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 1.25rem 1rem 3rem; }
+
+.grid-2 { display: grid; gap: 1.25rem; grid-template-columns: 1fr; align-items: start; }
+@media (min-width: 768px) { .grid-2 { grid-template-columns: minmax(280px, 380px) 1fr; } }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.1rem; margin-bottom: 1.25rem; }
+.grid-2 .card { margin-bottom: 0; }
+
+label { display: block; font-weight: 600; margin-bottom: 0.85rem; }
+input, select { display: block; width: 100%; margin-top: 0.3rem; padding: 0.6rem 0.7rem; font: inherit; border: 1px solid #b9c7bf; border-radius: 8px; background: #fff; color: var(--ink); }
+.lang select { margin: 0; padding: 0.4rem 0.5rem; width: auto; }
+.filter { max-width: 320px; }
+
+.btn { display: inline-block; padding: 0.65rem 1.1rem; font: inherit; font-weight: 600; color: #fff; background: var(--forest); border: 1px solid var(--forest); border-radius: 8px; cursor: pointer; }
+.btn:hover:not(:disabled) { background: var(--forest-dark); }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+.btn.ghost { background: transparent; color: var(--forest); }
+.btn.ghost:hover:not(:disabled) { background: #e4efe9; }
+.btn.small { padding: 0.35rem 0.7rem; font-size: 0.9rem; }
+.link { background: none; border: 0; padding: 0; font: inherit; color: var(--sky); text-decoration: underline; cursor: pointer; }
+
+.alert { padding: 0.55rem 0.75rem; border-radius: 8px; margin: 0 0 0.85rem; font-weight: 600; }
+.alert.error { background: #fbe9e7; color: var(--danger); }
+.alert.ok { background: #e3f3ea; color: var(--ok); }
+
+.tabs { display: flex; gap: 0.25rem; margin-bottom: 1rem; border-bottom: 2px solid var(--line); overflow-x: auto; }
+.tab { background: none; border: 0; padding: 0.6rem 1rem; font: inherit; font-weight: 600; color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap; }
+.tab.active { color: var(--forest); border-bottom-color: var(--sun); }
+
+.report-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+.segmented { display: inline-flex; border: 1px solid var(--forest); border-radius: 8px; overflow: hidden; }
+.seg { background: #fff; border: 0; padding: 0.4rem 0.9rem; font: inherit; font-weight: 600; color: var(--forest); cursor: pointer; }
+.seg.active { background: var(--forest); color: #fff; }
+.range { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin: 0.75rem 0; flex-wrap: wrap; }
+.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+.summary > div { display: flex; flex-direction: column; padding: 0.7rem 0.9rem; border-left: 4px solid var(--sun); background: #f8faf9; }
+.figure { font-family: 'Sora', sans-serif; font-size: 1.4rem; }
+.pager { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 0.75rem; }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+th, td { text-align: left; padding: 0.55rem 0.6rem; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { font-weight: 600; color: var(--muted); }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+.pick-list { list-style: none; margin: 0.75rem 0 0; padding: 0; }
+.pick-list li { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid var(--line); }
+.selected { padding: 0.6rem 0.8rem; border-left: 4px solid var(--forest); background: #f2f8f5; }
+
+
+.overlay { position: fixed; inset: 0; background: rgba(16, 36, 28, 0.55); display: grid; place-items: center; padding: 1rem; z-index: 10; }
+.receipt { background: #fff; width: 100%; max-width: 440px; border-radius: 12px; padding: 1.4rem; border-top: 8px solid var(--sun); }
+.receipt-grid { display: grid; grid-template-columns: auto 1fr; gap: 0.35rem 1rem; margin: 0 0 1rem; }
+.receipt-grid dt { color: var(--muted); }
+.receipt-grid dd { margin: 0; font-weight: 600; text-align: right; word-break: break-word; }
+.receipt-grid dd.big { font-family: 'Sora', sans-serif; font-size: 1.3rem; }
+.actions { display: flex; gap: 0.5rem; justify-content: flex-end; }
+
+@media print {
+  body * { visibility: hidden; }
+  .receipt, .receipt * { visibility: visible; }
+  .receipt { position: absolute; inset: 0 auto auto 0; box-shadow: none; }
+  .no-print { display: none; }
+}
+
+.full { padding: 0; }
+.login-bg {
+  min-height: calc(100vh - 64px);
+  display: grid;
+  place-items: center;
+  padding: 1.5rem 1rem;
+  background: linear-gradient(rgba(16, 36, 28, 0.35), rgba(16, 36, 28, 0.35)), url('/bg.png') center / cover no-repeat;
+}
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 1.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 14px;
+  border-top: 8px solid var(--sun);
+  text-align: center;
+}
+.login-card form { text-align: left; margin-top: 1rem; }
+.login-logo { width: 84px; height: 84px; object-fit: contain; }
+.login-card h1 { margin: 0.4rem 0 0.25rem; }
+.btn.wide { width: 100%; }
