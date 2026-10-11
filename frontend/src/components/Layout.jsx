@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth.jsx';
 
 const LANGUAGES = [['rw', 'Kinyarwanda'], ['sw', 'Kiswahili'], ['en', 'English'], ['fr', 'Français']];
@@ -20,11 +20,12 @@ export default function Layout({ children }) {
   const { t } = useTranslation();
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const isLogin = useLocation().pathname === '/login';
   return (
     <>
       <div className="flagband" aria-hidden="true" />
       <header className="topbar">
-        <div className="brand">{t('appName')}</div>
+        <div className="brand"><img src="/logo.png" alt="" className="logo" /><span>{t('appName')}</span></div>
         <div className="topbar-right">
           <LanguageSwitcher />
           {user && (
@@ -35,7 +36,7 @@ export default function Layout({ children }) {
           )}
         </div>
       </header>
-      <main className="container">{children}</main>
+      <main className={isLogin ? 'full' : 'container'}>{children}</main>
     </>
   );
 }

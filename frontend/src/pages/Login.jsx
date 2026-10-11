@@ -27,25 +27,25 @@ export default function Login() {
   }
 
   return (
-    <div className="login">
-      <aside className="login-side">
+    <div className="login-bg">
+      <div className="login-card">
+        <img src="/logo.png" alt="" className="login-logo" />
         <h1>{t('appName')}</h1>
-        <p>{t('loginSubtitle')}</p>
-      </aside>
-      <form className="login-form" onSubmit={submit}>
-        <h2>{t('loginTitle')}</h2>
-        <label>
-          {t('identifier')}
-          <input value={identifier} onChange={(e) => setIdentifier(e.target.value)} autoComplete="username" required />
-        </label>
-        <label>
-          {t('password')}
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password" required />
-        </label>
-        {error && <p className="alert error">{error === 'error' ? t('error') : error}</p>}
-        <button className="btn" disabled={busy}>{busy ? t('signingIn') : t('signIn')}</button>
+        <p className="muted">{t('loginSubtitle')}</p>
+        <form onSubmit={submit}>
+          <label>
+            {t('identifier')}
+            <input value={identifier} onChange={(e) => setIdentifier(e.target.value)} autoComplete="username" required />
+          </label>
+          <label>
+            {t('password')}
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password" required />
+          </label>
+          {error && <p className="alert error">{error === 'error' ? t('error') : error}</p>}
+          <button className="btn wide" disabled={busy}>{busy ? t('signingIn') : t('signIn')}</button>
+        </form>
         <p className="muted small">{t('loginHelp')}</p>
-      </form>
+      </div>
     </div>
   );
 }
